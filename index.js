@@ -13,6 +13,12 @@ app.get("/categories", (req, res) => {
   res.send(categories);
 });
 
+app.get("/category/:id", (req, res) => {
+  const id = req.params.id;
+  const categoryNews = news.filter((nw) => nw.category_id === id);
+  res.send(categoryNews);
+});
+
 app.get("/news", (req, res) => {
   res.send(news);
 });
